@@ -1,0 +1,1164 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[v F226 `(v ~T0 @X0 0 tf1`i ]
+[v F178 `(v ~T0 @X0 0 tf1`i ]
+"30 lib/xprintf/src/xprintf.h
+[; ;lib/xprintf/src/xprintf.h: 30: void xfputc (void (*func)(int), int chr);
+[v _xfputc `(v ~T0 @X0 0 ef2`*F178`i ]
+[v F232 `(v ~T0 @X0 0 tf1`i ]
+[v F235 `(v ~T0 @X0 0 tf1`i ]
+[v F238 `(v ~T0 @X0 0 tf1`i ]
+[v F187 `(v ~T0 @X0 0 tf1`i ]
+"32
+[; ;lib/xprintf/src/xprintf.h: 32: void xfputs (void (*func)(int), const char* str);
+[v _xfputs `(v ~T0 @X0 0 ef2`*F187`*Cuc ]
+[v F243 `(v ~T0 @X0 0 tf1`i ]
+[v F246 `(v ~T0 @X0 0 tf1`i ]
+[v F250 `(v ~T0 @X0 0 tf1`i ]
+[v F253 `(v ~T0 @X0 0 tf1`i ]
+"14 /opt/microchip/xc8/v2.41/pic/include/c99/stdarg.h
+[v ___va_arg `(*v ~T0 @X0 0 ev`*v ]
+[p i ___va_arg ]
+"54 /opt/microchip/xc8/v2.41/pic/include/c99/string.h
+[; ;/opt/microchip/xc8/v2.41/pic/include/c99/string.h: 54: size_t strlen (const char *);
+[v _strlen `(ui ~T0 @X0 0 ef1`*Cuc ]
+"13 /opt/microchip/xc8/v2.41/pic/include/c99/stdarg.h
+[v ___va_start `(*v ~T0 @X0 0 ef ]
+[p i ___va_start ]
+[v F275 `(v ~T0 @X0 0 tf1`i ]
+[v F278 `(v ~T0 @X0 0 tf1`i ]
+[v F286 `(v ~T0 @X0 0 tf1`i ]
+[v F298 `(i ~T0 @X0 0 tf ]
+[v F304 `(i ~T0 @X0 0 tf ]
+"28 lib/xprintf/src/xprintf.c
+[; ;lib/xprintf/src/xprintf.c: 28: void (*xfunc_output)(int);
+[v _xfunc_output `*F226 ~T0 @X0 1 e ]
+"29
+[; ;lib/xprintf/src/xprintf.c: 29: static char *strptr;
+[v _strptr `*uc ~T0 @X0 1 s ]
+"160
+[; ;lib/xprintf/src/xprintf.c: 160: void xputc (
+[v _xputc `(v ~T0 @X0 1 ef1`i ]
+"163
+[; ;lib/xprintf/src/xprintf.c: 163: {
+{
+[e :U _xputc ]
+"161
+[; ;lib/xprintf/src/xprintf.c: 161:  int chr
+[v _chr `i ~T0 @X0 1 r1 ]
+"163
+[; ;lib/xprintf/src/xprintf.c: 163: {
+[f ]
+"164
+[; ;lib/xprintf/src/xprintf.c: 164:  xfputc(xfunc_output, chr);
+[e ( _xfputc (2 , _xfunc_output _chr ]
+"165
+[; ;lib/xprintf/src/xprintf.c: 165: }
+[e :UE 2 ]
+}
+"168
+[; ;lib/xprintf/src/xprintf.c: 168: void xfputc (
+[v _xfputc `(v ~T0 @X0 1 ef2`*F232`i ]
+"172
+[; ;lib/xprintf/src/xprintf.c: 172: {
+{
+[e :U _xfputc ]
+"169
+[; ;lib/xprintf/src/xprintf.c: 169:  void(*func)(int),
+[v _func `*F235 ~T0 @X0 1 r1 ]
+"170
+[; ;lib/xprintf/src/xprintf.c: 170:  int chr
+[v _chr `i ~T0 @X0 1 r2 ]
+"172
+[; ;lib/xprintf/src/xprintf.c: 172: {
+[f ]
+"175
+[; ;lib/xprintf/src/xprintf.c: 175:  if (func) {
+[e $ ! != _func -> -> 0 `i `*F238 4  ]
+{
+"176
+[; ;lib/xprintf/src/xprintf.c: 176:   func(chr);
+[e ( *U _func (1 _chr ]
+"177
+[; ;lib/xprintf/src/xprintf.c: 177:  } else if (strptr) {
+}
+[e $U 5  ]
+[e :U 4 ]
+[e $ ! != _strptr -> -> 0 `i `*uc 6  ]
+{
+"178
+[; ;lib/xprintf/src/xprintf.c: 178:    *strptr++ = chr;
+[e = *U ++ _strptr * -> -> 1 `i `x -> -> # *U _strptr `i `x -> _chr `uc ]
+"179
+[; ;lib/xprintf/src/xprintf.c: 179:  }
+}
+[e :U 6 ]
+[e :U 5 ]
+"180
+[; ;lib/xprintf/src/xprintf.c: 180: }
+[e :UE 3 ]
+}
+"188
+[; ;lib/xprintf/src/xprintf.c: 188: void xputs (
+[v _xputs `(v ~T0 @X0 1 ef1`*Cuc ]
+"191
+[; ;lib/xprintf/src/xprintf.c: 191: {
+{
+[e :U _xputs ]
+"189
+[; ;lib/xprintf/src/xprintf.c: 189:  const char* str
+[v _str `*Cuc ~T0 @X0 1 r1 ]
+"191
+[; ;lib/xprintf/src/xprintf.c: 191: {
+[f ]
+"192
+[; ;lib/xprintf/src/xprintf.c: 192:  xfputs(xfunc_output, str);
+[e ( _xfputs (2 , _xfunc_output _str ]
+"193
+[; ;lib/xprintf/src/xprintf.c: 193: }
+[e :UE 7 ]
+}
+"196
+[; ;lib/xprintf/src/xprintf.c: 196: void xfputs (
+[v _xfputs `(v ~T0 @X0 1 ef2`*F243`*Cuc ]
+"200
+[; ;lib/xprintf/src/xprintf.c: 200: {
+{
+[e :U _xfputs ]
+"197
+[; ;lib/xprintf/src/xprintf.c: 197:  void(*func)(int),
+[v _func `*F246 ~T0 @X0 1 r1 ]
+"198
+[; ;lib/xprintf/src/xprintf.c: 198:  const char* str
+[v _str `*Cuc ~T0 @X0 1 r2 ]
+"200
+[; ;lib/xprintf/src/xprintf.c: 200: {
+[f ]
+"201
+[; ;lib/xprintf/src/xprintf.c: 201:  while (*str) {
+[e $U 9  ]
+[e :U 10 ]
+{
+"202
+[; ;lib/xprintf/src/xprintf.c: 202:   xfputc(func, *str++);
+[e ( _xfputc (2 , _func -> *U ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x `i ]
+"203
+[; ;lib/xprintf/src/xprintf.c: 203:  }
+}
+[e :U 9 ]
+"201
+[; ;lib/xprintf/src/xprintf.c: 201:  while (*str) {
+[e $ != -> *U _str `i -> 0 `i 10  ]
+[e :U 11 ]
+"204
+[; ;lib/xprintf/src/xprintf.c: 204: }
+[e :UE 8 ]
+}
+"233
+[; ;lib/xprintf/src/xprintf.c: 233: static void xvfprintf (
+[v _xvfprintf `(v ~T0 @X0 1 sf3`*F250`*Cuc`**v ]
+"238
+[; ;lib/xprintf/src/xprintf.c: 238: {
+{
+[e :U _xvfprintf ]
+"234
+[; ;lib/xprintf/src/xprintf.c: 234:  void(*func)(int),
+[v _func `*F253 ~T0 @X0 1 r1 ]
+"235
+[; ;lib/xprintf/src/xprintf.c: 235:  const char* fmt,
+[v _fmt `*Cuc ~T0 @X0 1 r2 ]
+"236
+[; ;lib/xprintf/src/xprintf.c: 236:  va_list arp
+[v _arp `**v ~T0 @X0 1 r3 ]
+"238
+[; ;lib/xprintf/src/xprintf.c: 238: {
+[f ]
+"239
+[; ;lib/xprintf/src/xprintf.c: 239:  unsigned int r, i, j, w, f;
+[v _r `ui ~T0 @X0 1 a ]
+[v _i `ui ~T0 @X0 1 a ]
+[v _j `ui ~T0 @X0 1 a ]
+[v _w `ui ~T0 @X0 1 a ]
+[v _f `ui ~T0 @X0 1 a ]
+"240
+[; ;lib/xprintf/src/xprintf.c: 240:  int n, prec;
+[v _n `i ~T0 @X0 1 a ]
+[v _prec `i ~T0 @X0 1 a ]
+"241
+[; ;lib/xprintf/src/xprintf.c: 241:  char str[32], c, d, *p, pad;
+[v _str `uc ~T0 @X0 -> 32 `i a ]
+[v _c `uc ~T0 @X0 1 a ]
+[v _d `uc ~T0 @X0 1 a ]
+[v _p `*uc ~T0 @X0 1 a ]
+[v _pad `uc ~T0 @X0 1 a ]
+"246
+[; ;lib/xprintf/src/xprintf.c: 246:  long v;
+[v _v `l ~T0 @X0 1 a ]
+"247
+[; ;lib/xprintf/src/xprintf.c: 247:  unsigned long uv;
+[v _uv `ul ~T0 @X0 1 a ]
+"250
+[; ;lib/xprintf/src/xprintf.c: 250:  for (;;) {
+{
+[e :U 13 ]
+{
+"251
+[; ;lib/xprintf/src/xprintf.c: 251:   c = *fmt++;
+[e = _c *U ++ _fmt * -> -> 1 `i `x -> -> # *U _fmt `i `x ]
+"252
+[; ;lib/xprintf/src/xprintf.c: 252:   if (!c) break;
+[e $ ! ! != -> _c `i -> 0 `i 16  ]
+[e $U 14  ]
+[e :U 16 ]
+"253
+[; ;lib/xprintf/src/xprintf.c: 253:   if (c != '%') {
+[e $ ! != -> _c `ui -> 37 `ui 17  ]
+{
+"254
+[; ;lib/xprintf/src/xprintf.c: 254:    xfputc(func, c); continue;
+[e ( _xfputc (2 , _func -> _c `i ]
+[e $U 15  ]
+"255
+[; ;lib/xprintf/src/xprintf.c: 255:   }
+}
+[e :U 17 ]
+"256
+[; ;lib/xprintf/src/xprintf.c: 256:   f = w = 0;
+[e = _f = _w -> -> 0 `i `ui ]
+"257
+[; ;lib/xprintf/src/xprintf.c: 257:   pad = ' '; prec = -1;
+[e = _pad -> -> 32 `ui `uc ]
+[e = _prec -U -> 1 `i ]
+"258
+[; ;lib/xprintf/src/xprintf.c: 258:   c = *fmt++;
+[e = _c *U ++ _fmt * -> -> 1 `i `x -> -> # *U _fmt `i `x ]
+"259
+[; ;lib/xprintf/src/xprintf.c: 259:   if (c == '0') {
+[e $ ! == -> _c `ui -> 48 `ui 18  ]
+{
+"260
+[; ;lib/xprintf/src/xprintf.c: 260:    pad = '0'; c = *fmt++;
+[e = _pad -> -> 48 `ui `uc ]
+[e = _c *U ++ _fmt * -> -> 1 `i `x -> -> # *U _fmt `i `x ]
+"261
+[; ;lib/xprintf/src/xprintf.c: 261:   } else {
+}
+[e $U 19  ]
+[e :U 18 ]
+{
+"262
+[; ;lib/xprintf/src/xprintf.c: 262:    if (c == '-') {
+[e $ ! == -> _c `ui -> 45 `ui 20  ]
+{
+"263
+[; ;lib/xprintf/src/xprintf.c: 263:     f = 2; c = *fmt++;
+[e = _f -> -> 2 `i `ui ]
+[e = _c *U ++ _fmt * -> -> 1 `i `x -> -> # *U _fmt `i `x ]
+"264
+[; ;lib/xprintf/src/xprintf.c: 264:    }
+}
+[e :U 20 ]
+"265
+[; ;lib/xprintf/src/xprintf.c: 265:   }
+}
+[e :U 19 ]
+"266
+[; ;lib/xprintf/src/xprintf.c: 266:   if (c == '*') {
+[e $ ! == -> _c `ui -> 42 `ui 21  ]
+{
+"267
+[; ;lib/xprintf/src/xprintf.c: 267:    n = (*(int *)__va_arg(*(int **)arp, (int)0));
+[e = _n *U -> ( ___va_arg , (. -> *U -> _arp `**i `*v -> 0 `i `*i ]
+"268
+[; ;lib/xprintf/src/xprintf.c: 268:    if (n < 0) {
+[e $ ! < _n -> 0 `i 22  ]
+{
+"269
+[; ;lib/xprintf/src/xprintf.c: 269:     n = 0 - n; f = 2;
+[e = _n - -> 0 `i _n ]
+[e = _f -> -> 2 `i `ui ]
+"270
+[; ;lib/xprintf/src/xprintf.c: 270:    }
+}
+[e :U 22 ]
+"271
+[; ;lib/xprintf/src/xprintf.c: 271:    w = n; c = *fmt++;
+[e = _w -> _n `ui ]
+[e = _c *U ++ _fmt * -> -> 1 `i `x -> -> # *U _fmt `i `x ]
+"272
+[; ;lib/xprintf/src/xprintf.c: 272:   } else {
+}
+[e $U 23  ]
+[e :U 21 ]
+{
+"273
+[; ;lib/xprintf/src/xprintf.c: 273:    while (c >= '0' && c <= '9') {
+[e $U 24  ]
+[e :U 25 ]
+{
+"274
+[; ;lib/xprintf/src/xprintf.c: 274:     w = w * 10 + c - '0';
+[e = _w - + * _w -> -> 10 `i `ui -> _c `ui -> 48 `ui ]
+"275
+[; ;lib/xprintf/src/xprintf.c: 275:     c = *fmt++;
+[e = _c *U ++ _fmt * -> -> 1 `i `x -> -> # *U _fmt `i `x ]
+"276
+[; ;lib/xprintf/src/xprintf.c: 276:    }
+}
+[e :U 24 ]
+"273
+[; ;lib/xprintf/src/xprintf.c: 273:    while (c >= '0' && c <= '9') {
+[e $ && >= -> _c `ui -> 48 `ui <= -> _c `ui -> 57 `ui 25  ]
+[e :U 26 ]
+"277
+[; ;lib/xprintf/src/xprintf.c: 277:   }
+}
+[e :U 23 ]
+"278
+[; ;lib/xprintf/src/xprintf.c: 278:   if (c == '.') {
+[e $ ! == -> _c `ui -> 46 `ui 27  ]
+{
+"279
+[; ;lib/xprintf/src/xprintf.c: 279:    c = *fmt++;
+[e = _c *U ++ _fmt * -> -> 1 `i `x -> -> # *U _fmt `i `x ]
+"280
+[; ;lib/xprintf/src/xprintf.c: 280:    if (c == '*') {
+[e $ ! == -> _c `ui -> 42 `ui 28  ]
+{
+"281
+[; ;lib/xprintf/src/xprintf.c: 281:     prec = (*(int *)__va_arg(*(int **)arp, (int)0));
+[e = _prec *U -> ( ___va_arg , (. -> *U -> _arp `**i `*v -> 0 `i `*i ]
+"282
+[; ;lib/xprintf/src/xprintf.c: 282:     c = *fmt++;
+[e = _c *U ++ _fmt * -> -> 1 `i `x -> -> # *U _fmt `i `x ]
+"283
+[; ;lib/xprintf/src/xprintf.c: 283:    } else {
+}
+[e $U 29  ]
+[e :U 28 ]
+{
+"284
+[; ;lib/xprintf/src/xprintf.c: 284:     prec = 0;
+[e = _prec -> 0 `i ]
+"285
+[; ;lib/xprintf/src/xprintf.c: 285:     while (c >= '0' && c <= '9') {
+[e $U 30  ]
+[e :U 31 ]
+{
+"286
+[; ;lib/xprintf/src/xprintf.c: 286:      prec = prec * 10 + c - '0';
+[e = _prec -> - -> + * _prec -> 10 `i -> _c `i `ui -> 48 `ui `i ]
+"287
+[; ;lib/xprintf/src/xprintf.c: 287:      c = *fmt++;
+[e = _c *U ++ _fmt * -> -> 1 `i `x -> -> # *U _fmt `i `x ]
+"288
+[; ;lib/xprintf/src/xprintf.c: 288:     }
+}
+[e :U 30 ]
+"285
+[; ;lib/xprintf/src/xprintf.c: 285:     while (c >= '0' && c <= '9') {
+[e $ && >= -> _c `ui -> 48 `ui <= -> _c `ui -> 57 `ui 31  ]
+[e :U 32 ]
+"289
+[; ;lib/xprintf/src/xprintf.c: 289:    }
+}
+[e :U 29 ]
+"290
+[; ;lib/xprintf/src/xprintf.c: 290:   }
+}
+[e :U 27 ]
+"291
+[; ;lib/xprintf/src/xprintf.c: 291:   if (c == 'l') {
+[e $ ! == -> _c `ui -> 108 `ui 33  ]
+{
+"292
+[; ;lib/xprintf/src/xprintf.c: 292:    f |= 4; c = *fmt++;
+[e =| _f -> -> 4 `i `ui ]
+[e = _c *U ++ _fmt * -> -> 1 `i `x -> -> # *U _fmt `i `x ]
+"298
+[; ;lib/xprintf/src/xprintf.c: 298:   }
+}
+[e :U 33 ]
+"299
+[; ;lib/xprintf/src/xprintf.c: 299:   if (!c) break;
+[e $ ! ! != -> _c `i -> 0 `i 34  ]
+[e $U 14  ]
+[e :U 34 ]
+"300
+[; ;lib/xprintf/src/xprintf.c: 300:   switch (c) {
+[e $U 36  ]
+{
+"301
+[; ;lib/xprintf/src/xprintf.c: 301:   case 'b':
+[e :U 37 ]
+"302
+[; ;lib/xprintf/src/xprintf.c: 302:    r = 2; break;
+[e = _r -> -> 2 `i `ui ]
+[e $U 35  ]
+"303
+[; ;lib/xprintf/src/xprintf.c: 303:   case 'o':
+[e :U 38 ]
+"304
+[; ;lib/xprintf/src/xprintf.c: 304:    r = 8; break;
+[e = _r -> -> 8 `i `ui ]
+[e $U 35  ]
+"305
+[; ;lib/xprintf/src/xprintf.c: 305:   case 'd':
+[e :U 39 ]
+"306
+[; ;lib/xprintf/src/xprintf.c: 306:   case 'u':
+[e :U 40 ]
+"307
+[; ;lib/xprintf/src/xprintf.c: 307:    r = 10; break;
+[e = _r -> -> 10 `i `ui ]
+[e $U 35  ]
+"308
+[; ;lib/xprintf/src/xprintf.c: 308:   case 'x':
+[e :U 41 ]
+"309
+[; ;lib/xprintf/src/xprintf.c: 309:   case 'X':
+[e :U 42 ]
+"310
+[; ;lib/xprintf/src/xprintf.c: 310:    r = 16; break;
+[e = _r -> -> 16 `i `ui ]
+[e $U 35  ]
+"311
+[; ;lib/xprintf/src/xprintf.c: 311:   case 'c':
+[e :U 43 ]
+"312
+[; ;lib/xprintf/src/xprintf.c: 312:    xfputc(func, (char)(*(int *)__va_arg(*(int **)arp, (int)0))); continue;
+[e ( _xfputc (2 , _func -> -> *U -> ( ___va_arg , (. -> *U -> _arp `**i `*v -> 0 `i `*i `uc `i ]
+[e $U 15  ]
+"313
+[; ;lib/xprintf/src/xprintf.c: 313:   case 's':
+[e :U 44 ]
+"314
+[; ;lib/xprintf/src/xprintf.c: 314:    p = (*(char* *)__va_arg(*(char* **)arp, (char*)0));
+[e = _p *U -> ( ___va_arg , (. -> *U -> _arp `***uc `*v -> -> 0 `i `*uc `**uc ]
+"315
+[; ;lib/xprintf/src/xprintf.c: 315:    if (!p) p = "";
+[e $ ! ! != _p -> -> 0 `i `*uc 45  ]
+[e = _p :s 1C ]
+[e :U 45 ]
+"316
+[; ;lib/xprintf/src/xprintf.c: 316:    j = strlen(p);
+[e = _j ( _strlen (1 -> _p `*Cuc ]
+"317
+[; ;lib/xprintf/src/xprintf.c: 317:    if (prec >= 0 && j > (unsigned int)prec) j = prec;
+[e $ ! && >= _prec -> 0 `i > _j -> _prec `ui 46  ]
+[e = _j -> _prec `ui ]
+[e :U 46 ]
+"318
+[; ;lib/xprintf/src/xprintf.c: 318:    for ( ; !(f & 2) && j < w; j++) xfputc(func, pad);
+{
+[e $U 50  ]
+[e :U 47 ]
+[e ( _xfputc (2 , _func -> _pad `i ]
+[e ++ _j -> -> 1 `i `ui ]
+[e :U 50 ]
+[e $ && ! != & _f -> -> 2 `i `ui -> -> 0 `i `ui < _j _w 47  ]
+[e :U 48 ]
+}
+"319
+[; ;lib/xprintf/src/xprintf.c: 319:    while (*p && prec--) xfputc(func, *p++);
+[e $U 51  ]
+[e :U 52 ]
+[e ( _xfputc (2 , _func -> *U ++ _p * -> -> 1 `i `x -> -> # *U _p `i `x `i ]
+[e :U 51 ]
+[e $ && != -> *U _p `i -> 0 `i != -- _prec -> 1 `i -> 0 `i 52  ]
+[e :U 53 ]
+"320
+[; ;lib/xprintf/src/xprintf.c: 320:    while (j++ < w) xfputc(func, ' ');
+[e $U 54  ]
+[e :U 55 ]
+[e ( _xfputc (2 , _func -> -> 32 `ui `i ]
+[e :U 54 ]
+[e $ < ++ _j -> -> 1 `i `ui _w 55  ]
+[e :U 56 ]
+"321
+[; ;lib/xprintf/src/xprintf.c: 321:    continue;
+[e $U 15  ]
+"332
+[; ;lib/xprintf/src/xprintf.c: 332:   default:
+[e :U 57 ]
+"333
+[; ;lib/xprintf/src/xprintf.c: 333:    xfputc(func, c); continue;
+[e ( _xfputc (2 , _func -> _c `i ]
+[e $U 15  ]
+"334
+[; ;lib/xprintf/src/xprintf.c: 334:   }
+}
+[e $U 35  ]
+[e :U 36 ]
+[e [\ -> _c `i , $ -> -> 98 `ui `i 37
+ , $ -> -> 111 `ui `i 38
+ , $ -> -> 100 `ui `i 39
+ , $ -> -> 117 `ui `i 40
+ , $ -> -> 120 `ui `i 41
+ , $ -> -> 88 `ui `i 42
+ , $ -> -> 99 `ui `i 43
+ , $ -> -> 115 `ui `i 44
+ 57 ]
+[e :U 35 ]
+"348
+[; ;lib/xprintf/src/xprintf.c: 348:   if (f & 4) {
+[e $ ! != & _f -> -> 4 `i `ui -> -> 0 `i `ui 58  ]
+{
+"349
+[; ;lib/xprintf/src/xprintf.c: 349:    v = (long)(*(long *)__va_arg(*(long **)arp, (long)0));
+[e = _v *U -> ( ___va_arg , (. -> *U -> _arp `**l `*v -> -> 0 `i `l `*l ]
+"350
+[; ;lib/xprintf/src/xprintf.c: 350:   } else {
+}
+[e $U 59  ]
+[e :U 58 ]
+{
+"351
+[; ;lib/xprintf/src/xprintf.c: 351:    v = (c == 'd') ? (long)(*(int *)__va_arg(*(int **)arp, (int)0)) : (long)(*(unsigned int *)__va_arg(*(unsigned int **)arp, (unsigned int)0));
+[e = _v ? == -> _c `ui -> 100 `ui : -> *U -> ( ___va_arg , (. -> *U -> _arp `**i `*v -> 0 `i `*i `l -> *U -> ( ___va_arg , (. -> *U -> _arp `**ui `*v -> -> 0 `i `ui `*ui `l ]
+"352
+[; ;lib/xprintf/src/xprintf.c: 352:   }
+}
+[e :U 59 ]
+"354
+[; ;lib/xprintf/src/xprintf.c: 354:   if (c == 'd' && v < 0) {
+[e $ ! && == -> _c `ui -> 100 `ui < _v -> -> 0 `i `l 60  ]
+{
+"355
+[; ;lib/xprintf/src/xprintf.c: 355:    v = 0 - v; f |= 1;
+[e = _v - -> -> 0 `i `l _v ]
+[e =| _f -> -> 1 `i `ui ]
+"356
+[; ;lib/xprintf/src/xprintf.c: 356:   }
+}
+[e :U 60 ]
+"357
+[; ;lib/xprintf/src/xprintf.c: 357:   i = 0; uv = v;
+[e = _i -> -> 0 `i `ui ]
+[e = _uv -> _v `ul ]
+"358
+[; ;lib/xprintf/src/xprintf.c: 358:   do {
+[e :U 63 ]
+{
+"359
+[; ;lib/xprintf/src/xprintf.c: 359:    d = (char)(uv % r); uv /= r;
+[e = _d -> % _uv -> _r `ul `uc ]
+[e =/ _uv -> _r `ul ]
+"360
+[; ;lib/xprintf/src/xprintf.c: 360:    if (d > 9) d += (c == 'x') ? 0x27 : 0x07;
+[e $ ! > -> _d `i -> 9 `i 64  ]
+[e =+ _d -> ? == -> _c `ui -> 120 `ui : -> 39 `i -> 7 `i `uc ]
+[e :U 64 ]
+"361
+[; ;lib/xprintf/src/xprintf.c: 361:    str[i++] = d + '0';
+[e = *U + &U _str * -> ++ _i -> -> 1 `i `ui `ux -> -> # *U &U _str `ui `ux -> + -> _d `ui -> 48 `ui `uc ]
+"362
+[; ;lib/xprintf/src/xprintf.c: 362:   } while (uv != 0 && i < sizeof str);
+}
+[e $ && != _uv -> -> -> 0 `i `l `ul < _i -> # _str `ui 63  ]
+[e :U 62 ]
+"363
+[; ;lib/xprintf/src/xprintf.c: 363:   if (f & 1) str[i++] = '-';
+[e $ ! != & _f -> -> 1 `i `ui -> -> 0 `i `ui 65  ]
+[e = *U + &U _str * -> ++ _i -> -> 1 `i `ui `ux -> -> # *U &U _str `ui `ux -> -> 45 `ui `uc ]
+[e :U 65 ]
+"364
+[; ;lib/xprintf/src/xprintf.c: 364:   for (j = i; !(f & 2) && j < w; j++) xfputc(func, pad);
+{
+[e = _j _i ]
+[e $U 69  ]
+[e :U 66 ]
+[e ( _xfputc (2 , _func -> _pad `i ]
+[e ++ _j -> -> 1 `i `ui ]
+[e :U 69 ]
+[e $ && ! != & _f -> -> 2 `i `ui -> -> 0 `i `ui < _j _w 66  ]
+[e :U 67 ]
+}
+"365
+[; ;lib/xprintf/src/xprintf.c: 365:   do xfputc(func, str[--i]); while (i != 0);
+[e :U 72 ]
+[e ( _xfputc (2 , _func -> *U + &U _str * -> =- _i -> -> 1 `i `ui `ux -> -> # *U &U _str `ui `ux `i ]
+[e $ != _i -> -> 0 `i `ui 72  ]
+[e :U 71 ]
+"366
+[; ;lib/xprintf/src/xprintf.c: 366:   while (j++ < w) xfputc(func, ' ');
+[e $U 73  ]
+[e :U 74 ]
+[e ( _xfputc (2 , _func -> -> 32 `ui `i ]
+[e :U 73 ]
+[e $ < ++ _j -> -> 1 `i `ui _w 74  ]
+[e :U 75 ]
+"367
+[; ;lib/xprintf/src/xprintf.c: 367:  }
+}
+[e :U 15 ]
+[e $U 13  ]
+[e :U 14 ]
+}
+"368
+[; ;lib/xprintf/src/xprintf.c: 368: }
+[e :UE 12 ]
+}
+"371
+[; ;lib/xprintf/src/xprintf.c: 371: void xprintf (
+[v _xprintf `(v ~T0 @X0 1 ev`*Cuc ]
+"375
+[; ;lib/xprintf/src/xprintf.c: 375: {
+{
+[e :U _xprintf ]
+"372
+[; ;lib/xprintf/src/xprintf.c: 372:  const char* fmt,
+[v _fmt `*Cuc ~T0 @X0 1 r0 ]
+"375
+[; ;lib/xprintf/src/xprintf.c: 375: {
+[f ]
+"376
+[; ;lib/xprintf/src/xprintf.c: 376:  va_list arp;
+[v _arp `*v ~T0 @X0 -> -> 1 `i `ux a ]
+"379
+[; ;lib/xprintf/src/xprintf.c: 379:  *arp = __va_start();
+[e = *U &U _arp ( ___va_start ..  ]
+"380
+[; ;lib/xprintf/src/xprintf.c: 380:  xvfprintf(xfunc_output, fmt, arp);
+[e ( _xvfprintf (3 , , _xfunc_output _fmt &U _arp ]
+"381
+[; ;lib/xprintf/src/xprintf.c: 381:  ((void)0);
+[e -> 0 `i ]
+"382
+[; ;lib/xprintf/src/xprintf.c: 382: }
+[e :UE 76 ]
+}
+"385
+[; ;lib/xprintf/src/xprintf.c: 385: void xfprintf (
+[v _xfprintf `(v ~T0 @X0 1 e1v`*F275`*Cuc ]
+"390
+[; ;lib/xprintf/src/xprintf.c: 390: {
+{
+[e :U _xfprintf ]
+"386
+[; ;lib/xprintf/src/xprintf.c: 386:  void(*func)(int),
+[v _func `*F278 ~T0 @X0 1 r1 ]
+"387
+[; ;lib/xprintf/src/xprintf.c: 387:  const char* fmt,
+[v _fmt `*Cuc ~T0 @X0 1 r0 ]
+"390
+[; ;lib/xprintf/src/xprintf.c: 390: {
+[f ]
+"391
+[; ;lib/xprintf/src/xprintf.c: 391:  va_list arp;
+[v _arp `*v ~T0 @X0 -> -> 1 `i `ux a ]
+"394
+[; ;lib/xprintf/src/xprintf.c: 394:  *arp = __va_start();
+[e = *U &U _arp ( ___va_start ..  ]
+"395
+[; ;lib/xprintf/src/xprintf.c: 395:  xvfprintf(func, fmt, arp);
+[e ( _xvfprintf (3 , , _func _fmt &U _arp ]
+"396
+[; ;lib/xprintf/src/xprintf.c: 396:  ((void)0);
+[e -> 0 `i ]
+"397
+[; ;lib/xprintf/src/xprintf.c: 397: }
+[e :UE 77 ]
+}
+"400
+[; ;lib/xprintf/src/xprintf.c: 400: void xsprintf (
+[v _xsprintf `(v ~T0 @X0 1 e1v`*uc`*Cuc ]
+"405
+[; ;lib/xprintf/src/xprintf.c: 405: {
+{
+[e :U _xsprintf ]
+"401
+[; ;lib/xprintf/src/xprintf.c: 401:  char* buff,
+[v _buff `*uc ~T0 @X0 1 r1 ]
+"402
+[; ;lib/xprintf/src/xprintf.c: 402:  const char* fmt,
+[v _fmt `*Cuc ~T0 @X0 1 r0 ]
+"405
+[; ;lib/xprintf/src/xprintf.c: 405: {
+[f ]
+"406
+[; ;lib/xprintf/src/xprintf.c: 406:  va_list arp;
+[v _arp `*v ~T0 @X0 -> -> 1 `i `ux a ]
+"409
+[; ;lib/xprintf/src/xprintf.c: 409:  strptr = buff;
+[e = _strptr _buff ]
+"410
+[; ;lib/xprintf/src/xprintf.c: 410:  *arp = __va_start();
+[e = *U &U _arp ( ___va_start ..  ]
+"411
+[; ;lib/xprintf/src/xprintf.c: 411:  xvfprintf(0, fmt, arp);
+[e ( _xvfprintf (3 , , -> -> 0 `i `*F286 _fmt &U _arp ]
+"412
+[; ;lib/xprintf/src/xprintf.c: 412:  ((void)0);
+[e -> 0 `i ]
+"413
+[; ;lib/xprintf/src/xprintf.c: 413:  *strptr = 0;
+[e = *U _strptr -> -> 0 `i `uc ]
+"414
+[; ;lib/xprintf/src/xprintf.c: 414:  strptr = 0;
+[e = _strptr -> -> 0 `i `*uc ]
+"415
+[; ;lib/xprintf/src/xprintf.c: 415: }
+[e :UE 78 ]
+}
+"424
+[; ;lib/xprintf/src/xprintf.c: 424: void put_dump (
+[v _put_dump `(v ~T0 @X0 1 ef4`*Cv`ul`i`ui ]
+"430
+[; ;lib/xprintf/src/xprintf.c: 430: {
+{
+[e :U _put_dump ]
+"425
+[; ;lib/xprintf/src/xprintf.c: 425:  const void* buff,
+[v _buff `*Cv ~T0 @X0 1 r1 ]
+"426
+[; ;lib/xprintf/src/xprintf.c: 426:  unsigned long addr,
+[v _addr `ul ~T0 @X0 1 r2 ]
+"427
+[; ;lib/xprintf/src/xprintf.c: 427:  int len,
+[v _len `i ~T0 @X0 1 r3 ]
+"428
+[; ;lib/xprintf/src/xprintf.c: 428:  size_t width
+[v _width `ui ~T0 @X0 1 r4 ]
+"430
+[; ;lib/xprintf/src/xprintf.c: 430: {
+[f ]
+"431
+[; ;lib/xprintf/src/xprintf.c: 431:  int i;
+[v _i `i ~T0 @X0 1 a ]
+"432
+[; ;lib/xprintf/src/xprintf.c: 432:  const unsigned char *bp;
+[v _bp `*Cuc ~T0 @X0 1 a ]
+"433
+[; ;lib/xprintf/src/xprintf.c: 433:  const unsigned short *sp;
+[v _sp `*Cus ~T0 @X0 1 a ]
+"434
+[; ;lib/xprintf/src/xprintf.c: 434:  const unsigned long *lp;
+[v _lp `*Cul ~T0 @X0 1 a ]
+"437
+[; ;lib/xprintf/src/xprintf.c: 437:  xprintf("%08lX ", addr);
+[e ( _xprintf , (. :s 2C _addr ]
+"439
+[; ;lib/xprintf/src/xprintf.c: 439:  switch (width) {
+[e $U 81  ]
+{
+"440
+[; ;lib/xprintf/src/xprintf.c: 440:  case sizeof (char):
+[e :U 82 ]
+"441
+[; ;lib/xprintf/src/xprintf.c: 441:   bp = buff;
+[e = _bp -> _buff `*Cuc ]
+"442
+[; ;lib/xprintf/src/xprintf.c: 442:   for (i = 0; i < len; i++) {
+{
+[e = _i -> 0 `i ]
+[e $U 86  ]
+[e :U 83 ]
+{
+"443
+[; ;lib/xprintf/src/xprintf.c: 443:    xprintf(" %02X", bp[i]);
+[e ( _xprintf , (. :s 3C -> *U + _bp * -> _i `x -> -> # *U _bp `i `x `i ]
+"444
+[; ;lib/xprintf/src/xprintf.c: 444:   }
+}
+[e ++ _i -> 1 `i ]
+[e :U 86 ]
+[e $ < _i _len 83  ]
+[e :U 84 ]
+}
+"445
+[; ;lib/xprintf/src/xprintf.c: 445:   xputs("  ");
+[e ( _xputs (1 :s 4C ]
+"446
+[; ;lib/xprintf/src/xprintf.c: 446:   for (i = 0; i < len; i++) {
+{
+[e = _i -> 0 `i ]
+[e $U 90  ]
+[e :U 87 ]
+{
+"447
+[; ;lib/xprintf/src/xprintf.c: 447:    xputc((unsigned char)((bp[i] >= ' ' && bp[i] <= '~') ? bp[i] : '.'));
+[e ( _xputc (1 -> -> ? && >= -> *U + _bp * -> _i `x -> -> # *U _bp `i `x `ui -> 32 `ui <= -> *U + _bp * -> _i `x -> -> # *U _bp `i `x `ui -> 126 `ui : -> *U + _bp * -> _i `x -> -> # *U _bp `i `x `ui -> 46 `ui `uc `i ]
+"448
+[; ;lib/xprintf/src/xprintf.c: 448:   }
+}
+[e ++ _i -> 1 `i ]
+[e :U 90 ]
+[e $ < _i _len 87  ]
+[e :U 88 ]
+}
+"449
+[; ;lib/xprintf/src/xprintf.c: 449:   break;
+[e $U 80  ]
+"450
+[; ;lib/xprintf/src/xprintf.c: 450:  case sizeof (short):
+[e :U 91 ]
+"451
+[; ;lib/xprintf/src/xprintf.c: 451:   sp = buff;
+[e = _sp -> _buff `*Cus ]
+"452
+[; ;lib/xprintf/src/xprintf.c: 452:   do {
+[e :U 94 ]
+{
+"453
+[; ;lib/xprintf/src/xprintf.c: 453:    xprintf(" %04X", *sp++);
+[e ( _xprintf , (. :s 5C -> *U ++ _sp * -> -> 1 `i `x -> -> # *U _sp `i `x `ui ]
+"454
+[; ;lib/xprintf/src/xprintf.c: 454:   } while (--len);
+}
+[e $ != =- _len -> 1 `i -> 0 `i 94  ]
+[e :U 93 ]
+"455
+[; ;lib/xprintf/src/xprintf.c: 455:   break;
+[e $U 80  ]
+"456
+[; ;lib/xprintf/src/xprintf.c: 456:  case sizeof (long):
+[e :U 95 ]
+"457
+[; ;lib/xprintf/src/xprintf.c: 457:   lp = buff;
+[e = _lp -> _buff `*Cul ]
+"458
+[; ;lib/xprintf/src/xprintf.c: 458:   do {
+[e :U 98 ]
+{
+"459
+[; ;lib/xprintf/src/xprintf.c: 459:    xprintf(" %08lX", *lp++);
+[e ( _xprintf , (. :s 6C *U ++ _lp * -> -> 1 `i `x -> -> # *U _lp `i `x ]
+"460
+[; ;lib/xprintf/src/xprintf.c: 460:   } while (--len);
+}
+[e $ != =- _len -> 1 `i -> 0 `i 98  ]
+[e :U 97 ]
+"461
+[; ;lib/xprintf/src/xprintf.c: 461:   break;
+[e $U 80  ]
+"462
+[; ;lib/xprintf/src/xprintf.c: 462:  }
+}
+[e $U 80  ]
+[e :U 81 ]
+[e [\ _width , $ -> # `uc `ui 82
+ , $ -> # `s `ui 91
+ , $ -> # `l `ui 95
+ 80 ]
+[e :U 80 ]
+"464
+[; ;lib/xprintf/src/xprintf.c: 464:  xputc('\n');
+[e ( _xputc (1 -> -> 10 `ui `i ]
+"465
+[; ;lib/xprintf/src/xprintf.c: 465: }
+[e :UE 79 ]
+}
+"473
+[; ;lib/xprintf/src/xprintf.c: 473: int (*xfunc_input)(void);
+[v _xfunc_input `*F298 ~T0 @X0 1 e ]
+"480
+[; ;lib/xprintf/src/xprintf.c: 480: int xgets (
+[v _xgets `(i ~T0 @X0 1 ef2`*uc`i ]
+"484
+[; ;lib/xprintf/src/xprintf.c: 484: {
+{
+[e :U _xgets ]
+"481
+[; ;lib/xprintf/src/xprintf.c: 481:  char* buff,
+[v _buff `*uc ~T0 @X0 1 r1 ]
+"482
+[; ;lib/xprintf/src/xprintf.c: 482:  int len
+[v _len `i ~T0 @X0 1 r2 ]
+"484
+[; ;lib/xprintf/src/xprintf.c: 484: {
+[f ]
+"485
+[; ;lib/xprintf/src/xprintf.c: 485:  int c, i;
+[v _c `i ~T0 @X0 1 a ]
+[v _i `i ~T0 @X0 1 a ]
+"488
+[; ;lib/xprintf/src/xprintf.c: 488:  if (!xfunc_input) return 0;
+[e $ ! ! != _xfunc_input -> -> 0 `i `*F304 100  ]
+[e ) -> 0 `i ]
+[e $UE 99  ]
+[e :U 100 ]
+"490
+[; ;lib/xprintf/src/xprintf.c: 490:  i = 0;
+[e = _i -> 0 `i ]
+"491
+[; ;lib/xprintf/src/xprintf.c: 491:  for (;;) {
+{
+[e :U 101 ]
+{
+"492
+[; ;lib/xprintf/src/xprintf.c: 492:   c = xfunc_input();
+[e = _c ( *U _xfunc_input ..  ]
+"493
+[; ;lib/xprintf/src/xprintf.c: 493:   if (c < 0 || c == '\r') break;
+[e $ ! || < _c -> 0 `i == -> _c `ui -> 13 `ui 104  ]
+[e $U 102  ]
+[e :U 104 ]
+"494
+[; ;lib/xprintf/src/xprintf.c: 494:   if (c == '\b' && i) {
+[e $ ! && == -> _c `ui -> 8 `ui != _i -> 0 `i 105  ]
+{
+"495
+[; ;lib/xprintf/src/xprintf.c: 495:    i--;
+[e -- _i -> 1 `i ]
+"496
+[; ;lib/xprintf/src/xprintf.c: 496:    if (1) xputc(c);
+[e $ ! != -> 1 `i -> 0 `i 106  ]
+[e ( _xputc (1 _c ]
+[e :U 106 ]
+"497
+[; ;lib/xprintf/src/xprintf.c: 497:    continue;
+[e $U 103  ]
+"498
+[; ;lib/xprintf/src/xprintf.c: 498:   }
+}
+[e :U 105 ]
+"499
+[; ;lib/xprintf/src/xprintf.c: 499:   if (c >= ' ' && i < len - 1) {
+[e $ ! && >= -> _c `ui -> 32 `ui < _i - _len -> 1 `i 107  ]
+{
+"500
+[; ;lib/xprintf/src/xprintf.c: 500:    buff[i++] = c;
+[e = *U + _buff * -> ++ _i -> 1 `i `x -> -> # *U _buff `i `x -> _c `uc ]
+"501
+[; ;lib/xprintf/src/xprintf.c: 501:    if (1) xputc(c);
+[e $ ! != -> 1 `i -> 0 `i 108  ]
+[e ( _xputc (1 _c ]
+[e :U 108 ]
+"502
+[; ;lib/xprintf/src/xprintf.c: 502:   }
+}
+[e :U 107 ]
+"503
+[; ;lib/xprintf/src/xprintf.c: 503:  }
+}
+[e :U 103 ]
+[e $U 101  ]
+[e :U 102 ]
+}
+"504
+[; ;lib/xprintf/src/xprintf.c: 504:  if (1) {
+[e $ ! != -> 1 `i -> 0 `i 109  ]
+{
+"505
+[; ;lib/xprintf/src/xprintf.c: 505:   xputc('\r');
+[e ( _xputc (1 -> -> 13 `ui `i ]
+"506
+[; ;lib/xprintf/src/xprintf.c: 506:   xputc('\n');
+[e ( _xputc (1 -> -> 10 `ui `i ]
+"507
+[; ;lib/xprintf/src/xprintf.c: 507:  }
+}
+[e :U 109 ]
+"508
+[; ;lib/xprintf/src/xprintf.c: 508:  buff[i] = 0;
+[e = *U + _buff * -> _i `x -> -> # *U _buff `i `x -> -> 0 `i `uc ]
+"509
+[; ;lib/xprintf/src/xprintf.c: 509:  return (int)(c == '\r');
+[e ) -> == -> _c `ui -> 13 `ui `i ]
+[e $UE 99  ]
+"510
+[; ;lib/xprintf/src/xprintf.c: 510: }
+[e :UE 99 ]
+}
+"525
+[; ;lib/xprintf/src/xprintf.c: 525: int xatoi (
+[v _xatoi `(i ~T0 @X0 1 ef2`**uc`*l ]
+"529
+[; ;lib/xprintf/src/xprintf.c: 529: {
+{
+[e :U _xatoi ]
+"526
+[; ;lib/xprintf/src/xprintf.c: 526:  char **str,
+[v _str `**uc ~T0 @X0 1 r1 ]
+"527
+[; ;lib/xprintf/src/xprintf.c: 527:  long *res
+[v _res `*l ~T0 @X0 1 r2 ]
+"529
+[; ;lib/xprintf/src/xprintf.c: 529: {
+[f ]
+"530
+[; ;lib/xprintf/src/xprintf.c: 530:  unsigned long val;
+[v _val `ul ~T0 @X0 1 a ]
+"531
+[; ;lib/xprintf/src/xprintf.c: 531:  unsigned char c, r, s = 0;
+[v _c `uc ~T0 @X0 1 a ]
+[v _r `uc ~T0 @X0 1 a ]
+[v _s `uc ~T0 @X0 1 a ]
+[e = _s -> -> 0 `i `uc ]
+"534
+[; ;lib/xprintf/src/xprintf.c: 534:  *res = 0;
+[e = *U _res -> -> 0 `i `l ]
+"536
+[; ;lib/xprintf/src/xprintf.c: 536:  while ((c = **str) == ' ') (*str)++;
+[e $U 111  ]
+[e :U 112 ]
+[e ++ *U _str * -> -> 1 `i `x -> -> # *U *U _str `i `x ]
+[e :U 111 ]
+[e $ == -> = _c -> *U *U _str `uc `ui -> 32 `ui 112  ]
+[e :U 113 ]
+"538
+[; ;lib/xprintf/src/xprintf.c: 538:  if (c == '-') {
+[e $ ! == -> _c `ui -> 45 `ui 114  ]
+{
+"539
+[; ;lib/xprintf/src/xprintf.c: 539:   s = 1;
+[e = _s -> -> 1 `i `uc ]
+"540
+[; ;lib/xprintf/src/xprintf.c: 540:   c = *(++(*str));
+[e = _c -> *U =+ *U _str * -> -> 1 `i `x -> -> # *U *U _str `i `x `uc ]
+"541
+[; ;lib/xprintf/src/xprintf.c: 541:  }
+}
+[e :U 114 ]
+"543
+[; ;lib/xprintf/src/xprintf.c: 543:  if (c == '0') {
+[e $ ! == -> _c `ui -> 48 `ui 115  ]
+{
+"544
+[; ;lib/xprintf/src/xprintf.c: 544:   c = *(++(*str));
+[e = _c -> *U =+ *U _str * -> -> 1 `i `x -> -> # *U *U _str `i `x `uc ]
+"545
+[; ;lib/xprintf/src/xprintf.c: 545:   switch (c) {
+[e $U 117  ]
+{
+"546
+[; ;lib/xprintf/src/xprintf.c: 546:   case 'x':
+[e :U 118 ]
+"547
+[; ;lib/xprintf/src/xprintf.c: 547:    r = 16; c = *(++(*str));
+[e = _r -> -> 16 `i `uc ]
+[e = _c -> *U =+ *U _str * -> -> 1 `i `x -> -> # *U *U _str `i `x `uc ]
+"548
+[; ;lib/xprintf/src/xprintf.c: 548:    break;
+[e $U 116  ]
+"549
+[; ;lib/xprintf/src/xprintf.c: 549:   case 'b':
+[e :U 119 ]
+"550
+[; ;lib/xprintf/src/xprintf.c: 550:    r = 2; c = *(++(*str));
+[e = _r -> -> 2 `i `uc ]
+[e = _c -> *U =+ *U _str * -> -> 1 `i `x -> -> # *U *U _str `i `x `uc ]
+"551
+[; ;lib/xprintf/src/xprintf.c: 551:    break;
+[e $U 116  ]
+"552
+[; ;lib/xprintf/src/xprintf.c: 552:   default:
+[e :U 120 ]
+"553
+[; ;lib/xprintf/src/xprintf.c: 553:    if (c <= ' ') return 1;
+[e $ ! <= -> _c `ui -> 32 `ui 121  ]
+[e ) -> 1 `i ]
+[e $UE 110  ]
+[e :U 121 ]
+"554
+[; ;lib/xprintf/src/xprintf.c: 554:    if (c < '0' || c > '9') return 0;
+[e $ ! || < -> _c `ui -> 48 `ui > -> _c `ui -> 57 `ui 122  ]
+[e ) -> 0 `i ]
+[e $UE 110  ]
+[e :U 122 ]
+"555
+[; ;lib/xprintf/src/xprintf.c: 555:    r = 8;
+[e = _r -> -> 8 `i `uc ]
+"556
+[; ;lib/xprintf/src/xprintf.c: 556:   }
+}
+[e $U 116  ]
+[e :U 117 ]
+[e [\ -> _c `i , $ -> -> 120 `ui `i 118
+ , $ -> -> 98 `ui `i 119
+ 120 ]
+[e :U 116 ]
+"557
+[; ;lib/xprintf/src/xprintf.c: 557:  } else {
+}
+[e $U 123  ]
+[e :U 115 ]
+{
+"558
+[; ;lib/xprintf/src/xprintf.c: 558:   if (c < '0' || c > '9') return 0;
+[e $ ! || < -> _c `ui -> 48 `ui > -> _c `ui -> 57 `ui 124  ]
+[e ) -> 0 `i ]
+[e $UE 110  ]
+[e :U 124 ]
+"559
+[; ;lib/xprintf/src/xprintf.c: 559:   r = 10;
+[e = _r -> -> 10 `i `uc ]
+"560
+[; ;lib/xprintf/src/xprintf.c: 560:  }
+}
+[e :U 123 ]
+"562
+[; ;lib/xprintf/src/xprintf.c: 562:  val = 0;
+[e = _val -> -> -> 0 `i `l `ul ]
+"563
+[; ;lib/xprintf/src/xprintf.c: 563:  while (c > ' ') {
+[e $U 125  ]
+[e :U 126 ]
+{
+"564
+[; ;lib/xprintf/src/xprintf.c: 564:   if (c >= 'a') c -= 0x20;
+[e $ ! >= -> _c `ui -> 97 `ui 128  ]
+[e =- _c -> -> 32 `i `uc ]
+[e :U 128 ]
+"565
+[; ;lib/xprintf/src/xprintf.c: 565:   c -= '0';
+[e =- _c -> -> 48 `ui `uc ]
+"566
+[; ;lib/xprintf/src/xprintf.c: 566:   if (c >= 17) {
+[e $ ! >= -> _c `i -> 17 `i 129  ]
+{
+"567
+[; ;lib/xprintf/src/xprintf.c: 567:    c -= 7;
+[e =- _c -> -> 7 `i `uc ]
+"568
+[; ;lib/xprintf/src/xprintf.c: 568:    if (c <= 9) return 0;
+[e $ ! <= -> _c `i -> 9 `i 130  ]
+[e ) -> 0 `i ]
+[e $UE 110  ]
+[e :U 130 ]
+"569
+[; ;lib/xprintf/src/xprintf.c: 569:   }
+}
+[e :U 129 ]
+"570
+[; ;lib/xprintf/src/xprintf.c: 570:   if (c >= r) return 0;
+[e $ ! >= -> _c `i -> _r `i 131  ]
+[e ) -> 0 `i ]
+[e $UE 110  ]
+[e :U 131 ]
+"571
+[; ;lib/xprintf/src/xprintf.c: 571:   val = val * r + c;
+[e = _val + * _val -> _r `ul -> _c `ul ]
+"572
+[; ;lib/xprintf/src/xprintf.c: 572:   c = *(++(*str));
+[e = _c -> *U =+ *U _str * -> -> 1 `i `x -> -> # *U *U _str `i `x `uc ]
+"573
+[; ;lib/xprintf/src/xprintf.c: 573:  }
+}
+[e :U 125 ]
+"563
+[; ;lib/xprintf/src/xprintf.c: 563:  while (c > ' ') {
+[e $ > -> _c `ui -> 32 `ui 126  ]
+[e :U 127 ]
+"574
+[; ;lib/xprintf/src/xprintf.c: 574:  if (s) val = 0 - val;
+[e $ ! != -> _s `i -> 0 `i 132  ]
+[e = _val - -> -> -> 0 `i `l `ul _val ]
+[e :U 132 ]
+"576
+[; ;lib/xprintf/src/xprintf.c: 576:  *res = val;
+[e = *U _res -> _val `l ]
+"577
+[; ;lib/xprintf/src/xprintf.c: 577:  return 1;
+[e ) -> 1 `i ]
+[e $UE 110  ]
+"578
+[; ;lib/xprintf/src/xprintf.c: 578: }
+[e :UE 110 ]
+}
+[a 6C 32 37 48 56 108 88 0 ]
+[a 5C 32 37 48 52 88 0 ]
+[a 3C 32 37 48 50 88 0 ]
+[a 2C 37 48 56 108 88 32 0 ]
+[a 4C 32 32 0 ]
+[a 1C 0 ]

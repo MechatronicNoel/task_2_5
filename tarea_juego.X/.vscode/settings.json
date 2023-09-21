@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "app.h": "c",
+        "config.h": "c",
+        "stdint.h": "c"
+    }
+}
